@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
+import ListItem from "../../../SharedComponents/ListItem/ListItem";
 import React from "react";
 
 const OptionList = ({ options }) => {
@@ -10,9 +11,9 @@ const OptionList = ({ options }) => {
                 keyExtractor={(option) => option.optionTitle}
                 renderItem={(option) => (
                     <TouchableHighlight onPress={() => {}}>
-                        <View style={styles.optionContainer}>
+                        <ListItem style={styles.optionContainer}>
                             <Text>{`${option.item.optionTitle}`}</Text>
-                        </View>
+                        </ListItem>
                     </TouchableHighlight>
                 )}
             />
@@ -26,9 +27,6 @@ const styles = StyleSheet.create({
     optionContainer: {
         width: "100%",
         backgroundColor: "#fff",
-        borderTopWidth: 1,
-        borderColor: "#aaa",
         padding: 15,
-        fontFamily: "OpenSans",
     },
 });

@@ -1,6 +1,8 @@
 import { Button, FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import React, { useState } from "react";
 
+import ListItem from "../../SharedComponents/ListItem/ListItem";
+
 const elections = [
     {
         title: "¿A donde quieren salir?",
@@ -115,14 +117,14 @@ const MainPage = ({ setSentElection }) => {
                                 pressHandler(item.key);
                             }}
                         >
-                            <View style={styles.itemContainer}>
+                            <ListItem style={styles.itemContainer}>
                                 <View>
                                     <Text>{`${item.title}`}</Text>
                                 </View>
                                 <View>
                                     <Text>{`Votos: ${item.currentVotes}`}</Text>
                                 </View>
-                            </View>
+                            </ListItem>
                         </TouchableHighlight>
                     )}
                 />
@@ -153,8 +155,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "100%",
         backgroundColor: "#fff",
-        borderWidth: 1,
-        borderColor: "#333",
         padding: 15,
     },
 });
