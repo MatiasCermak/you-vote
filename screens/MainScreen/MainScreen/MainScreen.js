@@ -1,7 +1,7 @@
 import { Button, FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import React, { useState } from "react";
 
-import ListItem from "../../SharedComponents/ListItem/ListItem";
+import ListItem from "../../../components/ListItem/ListItem";
 
 const elections = [
     {
@@ -97,7 +97,7 @@ const elections = [
     },
 ];
 
-const MainPage = ({ setSentElection }) => {
+const MainScreen = ({ navigation }) => {
     const [currentElections, setCurrentElections] = useState(elections);
 
     const pressHandler = (key) => {
@@ -114,7 +114,7 @@ const MainPage = ({ setSentElection }) => {
                     renderItem={({ item }) => (
                         <TouchableHighlight
                             onPress={() => {
-                                pressHandler(item.key);
+                                navigation.navigate("Election", item);
                             }}
                         >
                             <ListItem style={styles.itemContainer}>
@@ -133,7 +133,7 @@ const MainPage = ({ setSentElection }) => {
     );
 };
 
-export default MainPage;
+export default MainScreen;
 
 const styles = StyleSheet.create({
     mainContainer: {

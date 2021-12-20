@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
-import ListItem from "../../../SharedComponents/ListItem/ListItem";
+import ListItem from "../../../components/ListItem/ListItem";
 import React from "react";
 
 const OptionList = ({ options }) => {
