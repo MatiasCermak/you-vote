@@ -105,7 +105,7 @@ const MainScreen = ({ navigation }) => {
     };
 
     return (
-        <View style={styles.mainContainer}>
+        <View>
             <Text style={styles.titleText}>Inicio</Text>
             <View>
                 <FlatList
