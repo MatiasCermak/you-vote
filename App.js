@@ -1,11 +1,9 @@
-import { Button, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 
 import AppLoading from "expo-app-loading";
 import AppNavigator from "./navigation/AppNavigator";
-import ElectionScreen from "./screens/ElectionScreen/ElectionScreen/ElectionScreen";
-import MainScreen from "./screens/MainScreen/MainScreen/MainScreen";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Provider } from "react-redux";
+import store from "./store";
 import { useFonts } from "expo-font";
 
 export default function App() {
@@ -17,5 +15,9 @@ export default function App() {
 
     if (!loaded) return <AppLoading />;
 
-    return <AppNavigator />;
+    return (
+        <Provider store={store}>
+            <AppNavigator />
+        </Provider>
+    );
 }
