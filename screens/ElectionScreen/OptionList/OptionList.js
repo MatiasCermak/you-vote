@@ -3,14 +3,14 @@ import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-nati
 import ListItem from "../../../components/ListItem/ListItem";
 import React from "react";
 
-const OptionList = ({ options }) => {
+const OptionList = ({ options, setSelectedOption }) => {
     return (
         <View>
             <FlatList
                 data={options}
-                keyExtractor={(option) => option.optionTitle}
-                renderItem={(option) => (
-                    <TouchableHighlight onPress={() => {}}>
+                keyExtractor={(option, index) => index}
+                renderItem={(option, index) => (
+                    <TouchableHighlight onPress={setSelectedOption(index)}>
                         <ListItem style={styles.optionContainer}>
                             <Text>{`${option.item.optionTitle}`}</Text>
                         </ListItem>
