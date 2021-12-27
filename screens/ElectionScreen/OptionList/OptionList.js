@@ -9,10 +9,14 @@ const OptionList = ({ options, setSelectedOption }) => {
             <FlatList
                 data={options}
                 keyExtractor={(option, index) => index}
-                renderItem={(option, index) => (
-                    <TouchableHighlight onPress={setSelectedOption(index)}>
+                renderItem={({ item, index }) => (
+                    <TouchableHighlight
+                        onPress={() => {
+                            setSelectedOption(index);
+                        }}
+                    >
                         <ListItem style={styles.optionContainer}>
-                            <Text>{`${option.item.optionTitle}`}</Text>
+                            <Text>{`${item.optionTitle} ${index}`}</Text>
                         </ListItem>
                     </TouchableHighlight>
                 )}

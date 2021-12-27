@@ -7,9 +7,10 @@ import { useDispatch } from "react-redux";
 
 const ElectionScreen = ({ route }) => {
     const [selectedOption, setSelectedOption] = useState(null);
-
+    const dispatch = useDispatch();
     const pressHandler = () => {
-        if (selectedOption != null) useDispatch(castVote({ election: route.params.key, option: selectedOption }));
+        console.log(selectedOption);
+        if (selectedOption != null) dispatch(castVote({ election: route.params.key, option: selectedOption }));
     };
 
     return (

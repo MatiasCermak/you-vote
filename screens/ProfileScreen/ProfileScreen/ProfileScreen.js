@@ -5,7 +5,7 @@ import React from "react";
 const ProfileScreen = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>Still in development</Text>
         </View>
     );
 };

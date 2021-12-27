@@ -109,4 +109,4 @@ export const voteSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { castVote } = voteSlice.actions;
 
-export default voteSlice.reducer;
+export default voteSlice;
