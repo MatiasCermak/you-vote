@@ -1,8 +1,9 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 
-import OptionList from "../OptionList/OptionList";
-import { castVote } from "../../../store/slices/voteSlice";
+import OptionList from "./OptionList/OptionList";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { castVote } from "../../store/slices/voteSlice";
 import { useDispatch } from "react-redux";
 
 const ElectionScreen = ({ route }) => {
@@ -14,7 +15,7 @@ const ElectionScreen = ({ route }) => {
     };
 
     return (
-        <View>
+        <SafeAreaView>
             <Text style={styles.titleText}>{route.params.title}</Text>
             <View style={styles.descriptionContainer}>
                 <Text>{route.params.description}</Text>
@@ -23,7 +24,7 @@ const ElectionScreen = ({ route }) => {
             <View style={styles.sendVoteButtonContainer}>
                 <Button style={styles.sendVoteButton} title="Votar" onPress={pressHandler} />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-
 import AppLoading from "expo-app-loading";
 import AppNavigator from "./navigation/AppNavigator";
 import { Provider } from "react-redux";
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import store from "./store";
 import { useFonts } from "expo-font";
 
+require("./firebase/init");
 export default function App() {
     const [loaded] = useFonts({
         OpenSans: require("./assets/fonts/OpenSans/OpenSans-Regular.ttf"),
@@ -17,7 +18,9 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <AppNavigator />
+            <SafeAreaProvider>
+                <AppNavigator />
+            </SafeAreaProvider>
         </Provider>
     );
 }

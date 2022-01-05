@@ -1,9 +1,11 @@
 import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import React, { useEffect } from "react";
+import { getDatabase, ref, set } from "firebase/database";
 
 import ListItem from "../../../components/ListItem/ListItem";
-import React from "react";
 
 const OptionList = ({ options, setSelectedOption }) => {
+    useEffect(() => {});
     return (
         <View>
             <FlatList
