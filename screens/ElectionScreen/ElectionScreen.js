@@ -1,28 +1,34 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 
-import OptionList from "../OptionList/OptionList";
-import { castVote } from "../../../store/slices/voteSlice";
+import OptionList from "./OptionList/OptionList";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { castVote } from "../../store/slices/voteSlice";
 import { useDispatch } from "react-redux";
 
 const ElectionScreen = ({ route }) => {
     const [selectedOption, setSelectedOption] = useState(null);
-
+    const dispatch = useDispatch();
     const pressHandler = () => {
-        if (selectedOption != null) useDispatch(castVote({ election: route.params.key, option: selectedOption }));
+        console.log(selectedOption);
+        if (selectedOption != null) dispatch(castVote({ election: route.params.key, option: selectedOption }));
     };
 
     return (
-        <View>
+        <SafeAreaView>
             <Text style={styles.titleText}>{route.params.title}</Text>
             <View style={styles.descriptionContainer}>
                 <Text>{route.params.description}</Text>
             </View>
-            <OptionList options={route.params.options} setSelectedOption={setSelectedOption} />
+            <OptionList
+                options={route.params.options}
+                setSelectedOption={setSelectedOption}
+                selectedOption={selectedOption}
+            />
             <View style={styles.sendVoteButtonContainer}>
                 <Button style={styles.sendVoteButton} title="Votar" onPress={pressHandler} />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
