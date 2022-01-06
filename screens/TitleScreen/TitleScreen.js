@@ -10,7 +10,7 @@ const TitleScreen = ({ navigation }) => {
             <View style={styles.titleScreenContainer}>
                 <AppIcon />
                 <View>
-                    <Button title="Logins" onPress={() => navigation.navigate("Login")} />
+                    <Button title="Login" onPress={() => navigation.navigate("Login")} />
                     <Button title="Register" onPress={() => navigation.navigate("Register")} />
                 </View>
             </View>
