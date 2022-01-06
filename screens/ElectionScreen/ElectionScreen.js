@@ -20,7 +20,11 @@ const ElectionScreen = ({ route }) => {
             <View style={styles.descriptionContainer}>
                 <Text>{route.params.description}</Text>
             </View>
-            <OptionList options={route.params.options} setSelectedOption={setSelectedOption} />
+            <OptionList
+                options={route.params.options}
+                setSelectedOption={setSelectedOption}
+                selectedOption={selectedOption}
+            />
             <View style={styles.sendVoteButtonContainer}>
                 <Button style={styles.sendVoteButton} title="Votar" onPress={pressHandler} />
             </View>

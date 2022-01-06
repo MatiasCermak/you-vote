@@ -4,7 +4,7 @@ import { getDatabase, ref, set } from "firebase/database";
 
 import ListItem from "../../../components/ListItem/ListItem";
 
-const OptionList = ({ options, setSelectedOption }) => {
+const OptionList = ({ options, selectedOption, setSelectedOption }) => {
     useEffect(() => {});
     return (
         <View>
@@ -17,8 +17,13 @@ const OptionList = ({ options, setSelectedOption }) => {
                             setSelectedOption(index);
                         }}
                     >
-                        <ListItem style={styles.optionContainer}>
-                            <Text>{`${item.optionTitle} ${index}`}</Text>
+                        <ListItem
+                            style={[
+                                styles.optionContainer,
+                                index === selectedOption ? styles.selectedOption : styles.unselectedOption,
+                            ]}
+                        >
+                            <Text>{`${item.optionTitle}`}</Text>
                         </ListItem>
                     </TouchableHighlight>
                 )}
@@ -32,7 +37,10 @@ export default OptionList;
 const styles = StyleSheet.create({
     optionContainer: {
         width: "100%",
-        backgroundColor: "#fff",
         padding: 15,
     },
+    selectedOption: {
+        backgroundColor: "blue",
+    },
+    unselectedOption: { backgroundColor: "#fff" },
 });
